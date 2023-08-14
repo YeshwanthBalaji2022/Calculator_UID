@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		input[type=text], select {
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+		.container {
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Simple Calculator</h1>
+		<form onsubmit="calculate(); return false;">
+			<label for="a">Enter value of a:</label>
+			<input type="text" id="a" name="a"><br><br>
+			<label for="b">Enter value of b:</label>
+			<input type="text" id="b" name="b"><br><br>
+			<label for="operation">Select operation:</label>
+			<select id="operation" name="operation">
+				<option value="+">Addition</option>
+				<option value="-">Subtraction</option>
+				<option value="*">Multiplication</option>
+				<option value="/">Division</option>
+				<option value="%">Modulus</option>
+			</select><br><br>
+			<input type="submit" value="Calculate">
+		</form>
+		<br>
+		<p id="result"></p>
+	</div>
+<script>
+	function calculate() {
+		var a = parseInt(document.getElementById("a").value);
+		var b = parseInt(document.getElementById("b").value);
+		var operation = document.getElementById("operation").value;
+		var ans;
+		switch (operation) {
+			case '+':
+				ans = a + b;
+				break;
+			case '-':
+				ans = a - b;
+				break;
+			case '*':
+				ans = a * b;
+				break;
+			case '/':
+				ans = a / b;
+				break;
+			case '%':
+				ans = a % b;
+				break;
+		}
+		document.getElementById("result").innerHTML = "Result: " + ans;
+	}
+</script>
+</body>
+</html>
